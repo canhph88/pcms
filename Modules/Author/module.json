@@ -1,0 +1,16 @@
+{
+    "name": "Author",
+    "alias": "author",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Author\\Providers\\AuthorServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

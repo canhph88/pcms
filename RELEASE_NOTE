@@ -1,0 +1,10 @@
+Release - 09052018
+
+Features
+- Auth: register, login with username
+- migration and seeder with faker to generate data in db
+- Object management: book, author, genre, user, role, permission
+- Role: admin, content, user
+- Permission: index, show, create, update, delete
+- view and url based on role
+- bad view

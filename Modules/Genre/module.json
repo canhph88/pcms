@@ -1,0 +1,16 @@
+{
+    "name": "Genre",
+    "alias": "genre",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Genre\\Providers\\GenreServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
