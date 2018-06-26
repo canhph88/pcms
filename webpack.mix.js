@@ -11,11 +11,5 @@ let mix = require('laravel-mix');
  |
  */
 
-mix
-    .js('resources/assets/js/jquery-min.js', 'public/js')
-    .js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    // .js('resources/assets/js/bootstrap-select.js', 'public/js')
-    // .sass('resources/assets/js/i18n/defaults-*.min.js', 'public/js')
-    // .sass('resources/assets/css//bootstrap-select.css', 'public/css')
-    // .sass('resources/assets/sass/bootstrap-select.scss', 'public/css');
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css');

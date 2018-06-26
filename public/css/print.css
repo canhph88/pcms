@@ -1,0 +1,4 @@
+@media print {
+    table th, td{border: solid 1px #ccc;}
+    h1{text-align: center;}
+}

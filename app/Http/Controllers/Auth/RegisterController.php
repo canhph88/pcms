@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Role;
 use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -25,7 +22,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-//    use Registered;
 
     /**
      * Where to redirect users after registration.
@@ -54,19 +50,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:32|unique:users,username',
-            'email' => 'required|string|email|max:255|unique:users,email',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
-    }
-
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        return redirect('home');
     }
 
     /**
@@ -77,28 +63,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
-            'username' => $data['username'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => Hash::make($data['password']),
         ]);
-
-        $user->roles()->attach(Role::where('name','user')->first());
-
-//        return $user;
     }
 
-//    protected function create(array $data)
-//    {
-//        $user = User::create([
-//            'name'     => $data['name'],
-//            'username' => $data['username'],
-//            'email'    => $data['email'],
-//            'password' => bcrypt($data['password']),
-//        ]);
-//        $user->roles()
-//            ->attach(Role::where('name', 'user')->first());
-//        return $user;
-//    }
+    public function showRegistrationForm()
+    {
+        return redirect('login');
+    }
+
+    public function register()
+    {
+
+    }
 }

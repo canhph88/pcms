@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-// window.Vue = require('vue');
+window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,39 +15,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-
-$(document).ready(
-
-    function($) {
-
-        // $ = global.jquery;
-
-        // $ = window.$ = window.jQuery = require('jquery');
-
-        $(".table-row").click(function() {
-            window.document.location = $(this).data("href");
-        });
-
-        $("#checkAll").click(function () {
-            $(".ckbox-item").prop('checked', $(this).prop('checked'));
-            // $(this).removeAttribute('checked');
-        });
-
-        var items = $('.ckbox-item');
-
-        $.each(items, function (index, item) {
-            $(item).click(function () {
-                if ($(item).attr('checked', 'false')) {
-                    $('#checkAll').prop('checked', 'false');
-                }
-            });
-        });
-
-    }
-);
+const app = new Vue({
+    el: '#app'
+});

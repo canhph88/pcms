@@ -1,10 +1,21 @@
-Release - 09052018
+Release - 28052018 0941
 
 Features
-- Auth: register, login with username
-- migration and seeder with faker to generate data in db
-- Object management: book, author, genre, user, role, permission
-- Role: admin, content, user
-- Permission: index, show, create, update, delete
-- view and url based on role
-- bad view
+- login ims with built-in account
+- disable register
+- integrate commzgate API
+- sms module: send sms by commzgate with input number or txt file
+- TESTING = true: only save sms to database
+- TESTING = false: send sms with provided numbers and save status
+- change .env TIMEZONE to your timezone making created_date match with your current time division
+- [SMS Send]: validate phones user input or upload by files, validate sms content, disable send when user clicked on
+- [SMS Send]: if all phones is valid then go to [SMS Listing]
+- [SMS Send]: if invalid phone exist then go back [SMS Send] and show notification
+- [sms Listing]: listing sms with fields - index, create_date, message content, mobile numbers, status
+- [sms Listing]: listing available for searching and ordering by column
+- [sms Listing]: filter by status select
+- [sms Listing]: view sms detail info by item on sms listing
+- [SMS View]: if field have no value then show 'N/A'
+
+Known Issues
+- when user back to [SMS Send]->submit: submit previous successful form after token expire

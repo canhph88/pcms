@@ -2,7 +2,6 @@
 
 namespace App\Console;
 
-use App\Jobs\ExcelBackup;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +13,6 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\ExcelBackupCommand::class,
         //
     ];
 
@@ -28,15 +26,6 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-
-//        $schedule->job(new ExcelBackup())->everyMinute();
-//        $schedule->call(function () {
-//            $excelBackup = new ExcelBackup();
-//            $excelBackup->handle();
-////            $this->command->info('Seeded the countries!');
-//        })->everyMinute();
-        $schedule->command('excel:command')->cron('0 */2 * * *');
-//        $schedule->command('route:list')->everyMinute();
     }
 
     /**

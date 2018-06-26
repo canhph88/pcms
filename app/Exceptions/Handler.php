@@ -3,15 +3,12 @@
 namespace App\Exceptions;
 
 use Exception;
-use http\Exception\BadMethodCallException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Illuminate\Http\Request;
 
 class Handler extends ExceptionHandler
 {
     /**
-     * A list of the errors types that are not reported.
+     * A list of the exception types that are not reported.
      *
      * @var array
      */
@@ -30,9 +27,7 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an errors.
-     *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     * Report or log an exception.
      *
      * @param  \Exception  $exception
      * @return void
@@ -43,29 +38,14 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Render an errors into an HTTP response.
+     * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-//    public function render($request, Exception $errors)
-//    {
-//        return parent::render($request, $errors);
-//    }
-
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof HttpException && $exception->getCode()==403) {
-            // put your redirect logic here
-            return redirect()->route('login');
-//            return view('errors.403')->with('message', $errors->getMessage());
-        } else if ($exception instanceof \ErrorException) {
-            return view('errors.404')->with('message', $exception->getMessage());
-        } else if ($exception instanceof BadMethodCallException) {
-            return view('errors.404')->with('message', $exception->getMessage());
-        }
-
         return parent::render($request, $exception);
     }
 }

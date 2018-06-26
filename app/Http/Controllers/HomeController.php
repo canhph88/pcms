@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Modules\Book\Entities\Book;
 
 class HomeController extends Controller
 {
@@ -24,16 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $books 	= Book::paginate(15);
-        return view('book::index')->with('books',$books);
-    }
-
-    public function logout()
-    {
-        auth()->logout();
-
-        session()->flash('message', 'some goodbye message');
-
-        return redirect('/login');
+//        return view('home');
+        return redirect('sms');
     }
 }

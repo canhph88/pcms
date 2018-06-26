@@ -65,7 +65,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('TIMEZONE', 'UTC'),
+    'display_timezone' => env('DISPLAY_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,10 +165,7 @@ return [
 
         Zizaco\Entrust\EntrustServiceProvider::class,
 
-        'Webpatser\Countries\CountriesServiceProvider',
-
-        'Maatwebsite\Excel\ExcelServiceProvider',
-   ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -218,13 +216,10 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
-        'Input' => Illuminate\Support\Facades\Input::class,
 
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
-        'Countries' => 'Webpatser\Countries\CountriesFacade',
 
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
