@@ -1,0 +1,16 @@
+{
+    "name": "Parking",
+    "alias": "parking",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Parking\\Providers\\ParkingServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

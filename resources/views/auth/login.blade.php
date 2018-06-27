@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" class="no-js">
 <head>
-    <title>Sign in to IMS Sentosa</title>
-    <meta name="description" content="Sign in to IMS Sentosa" />
+    <title>Sign in to P-CMS</title>
+    <meta name="description" content="Sign in to P-CMS" />
     <meta name="author" content="TECHATRIUM INNOVATION PET LTD" />
 
     <link rel="shortcut icon" href="{{ asset('images/ic_favicon.png') }}" />
@@ -21,13 +21,13 @@
 </head>
 <body>
 <div class="login">
-    <div>
-        <img id="login_screen_background" alt="Welcome to IMS Sentosa" title="Welcome to IMS Sentosa" src="{{ asset('images/placeholder.png') }}" />
-    </div>
-    <div>
+    {{--<div>--}}
+        {{--<img id="login_screen_background" alt="Welcome to IMS Sentosa" title="Welcome to IMS Sentosa" src="{{ asset('images/placeholder.png') }}" />--}}
+    {{--</div>--}}
+    <div class="container">
         <div>
-            <div>
-                <a href="javascript:void(0)"><img src="{{ asset('images/logo.png') }}" alt="Sign in to IMS Sentosa" title="Sign in to IMS Sentosa"></a>
+            <div class="text-center">
+                <a href="javascript:void(0)"><img class="img-lg" src="{{ asset('images/logo.png') }}" alt="Sign in to P-CMS" title="Sign in to P-CMS"></a>
             </div>
             {{--<Form action="{{ url('login') }}" method="post" class="form-element" id="loginForm">--}}
             {!! Form::open(array('url' => 'login', 'class' => 'form-element', 'id' => 'loginForm')) !!}
@@ -59,7 +59,7 @@
             {{--</Form>--}}
         </div>
     </div>
-    <div class="copyright">A product of <a href="javascript:void(0)">TECHATRIUM INNOVATION PTE LTD</a>. Copyright &copy; 2018. All rights reserved.</div>
+    <div class="copyright">A product of <a href="javascript:void(0)">P-CMS</a></div>
 </div>
 <script src="{{ asset('assets/vendor_components/jquery/dist/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/modernizr.min.js') }}"></script>
