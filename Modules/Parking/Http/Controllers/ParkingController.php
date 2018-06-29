@@ -131,7 +131,9 @@ class ParkingController extends Controller
      */
     public function create()
     {
-        return view('parking::create');
+        $districts = json_decode(file_get_contents(storage_path('app/public/hcm_area.json')));
+
+        return view('parking::create')->with('districts', $districts);
     }
 
     /**
@@ -189,10 +191,10 @@ class ParkingController extends Controller
                 'index' => ++$index,
                 'parkingName' => $link->toHtml(),
                 'photo' => $parking->photo,
-                'minPrice' => isset($parking->minPrice) ? $parking->minPrice : 'UNDEFINED',
-                'maxPrice' => isset($parking->maxPrice) ? $parking->maxPrice : 'UNDEFINED',
+                'minPrice' => isset($parking->minPrice) ? $parking->minPrice : '',
+                'maxPrice' => isset($parking->maxPrice) ? $parking->maxPrice : '',
                 'addressFull' => isset($parking->addressFull) ? $parking->addressFull : '',
-                'status' => isset($parking->status) ? $parking->status : 0,
+                'status' => isset($parking->status) ? $parking->status : '',
             ];
         }, $parkingArr);
     }

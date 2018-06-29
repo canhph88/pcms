@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('header_title')
-    SMS Listing
+    Parking Listing
 @endsection
 
 @section('additional_head')
@@ -60,10 +60,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            SMS Listing
+            Parking Listing
         </h1>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active"><i class="fa fa-comment-alt"></i> SMS Listing</li>
+            <li class="breadcrumb-item active"><i class="fa fa-comment-alt"></i> Parking Listing</li>
         </ol>
         <hr id="message-line" style="display: block;height: 2px;border: 0;border-top: 2px solid #0b93d5;">
         @if(Session::has('flash_message'))
@@ -186,10 +186,10 @@
                                     .draw();
                             });
 
-                        select.append('<option value="SUCCESS">SUCCESS</option>');
-                        select.append('<option value="FAILED">FAILED</option>');
-                        select.append('<option value="ERROR">ERROR</option>');
-                        select.append('<option value="TESTING">TESTING</option>');
+                        select.append('<option value="0">N/A</option>');
+                        select.append('<option value="1">PENDING</option>');
+                        select.append('<option value="2">VERIFIED</option>');
+                        select.append('<option value="3">LOCKED</option>');
                     });
 
                 },
@@ -205,7 +205,7 @@
                         common.hideLoading();
 
                     },
-                    statusCode: {
+                    'statusCode': {
                         200: function() {
                             console.log('OK 200')
                         },
@@ -258,7 +258,21 @@
                     { "data": "minPrice", render: $.fn.dataTable.render.text() },
                     { "data": "maxPrice" },
                     { "data": "addressFull", render: $.fn.dataTable.render.text() },
-                    { "data": "status" }
+                    {
+                        "data": "status",
+                        "render": function(data, type, full, meta) {
+
+                            if (data === 1) {
+                                return 'PENDING';
+                            } else if (data === 2) {
+                                return 'VERIFIED';
+                            } else if (data === 3) {
+                                return 'LOCKED';
+                            }
+
+                            return 'N/A';
+                        }
+                    }
                 ],
                 "columnDefs": [
                     {
